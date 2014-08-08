@@ -13,9 +13,15 @@ public class BusTimeVehicleMonitoring extends BusTime {
      * @param key Your developer key. Get a developer key here: http://bit.ly/1oqwa54
      */
     protected BusTimeVehicleMonitoring(String key) throws IOException {
-        super(key);
+        super(key, BusTimeConstants.BASE_VEHICLE_MONITORING_URL.getValue());
     }
 
-
-
+    public BusTimeVehicleMonitoring setVehicleRef(String vehicleRef) {
+        this.parameters.put("VehicleRef", vehicleRef);
+        return this;
+    }
+    public BusTimeVehicleMonitoring setVehicleMonitoringDetailLevel(String vehicleMonitoringDetailLevel) {
+        this.parameters.put("VehicleMonitoringDetailLevel", vehicleMonitoringDetailLevel);
+        return this;
+    }
 }

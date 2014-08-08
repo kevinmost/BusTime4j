@@ -1,6 +1,5 @@
 import bustime.BusTimeBuilder;
 import bustime.BusTimeStopMonitoring;
-import bustime.BusTimeVehicleMonitoring;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,9 +17,10 @@ public class BusTimeTester {
         BusTimeBuilder builder = new BusTimeBuilder().setKey(key);
 
         BusTimeStopMonitoring stop = builder.createNewBusTimeStopMonitoring();
-        BusTimeVehicleMonitoring vehicle = builder.createNewBusTimeVehicleMonitoring();
 
+        stop.setMonitoringRef("308214");
 
+        System.out.println(stop.getDataFromApi());
 
     }
 }
