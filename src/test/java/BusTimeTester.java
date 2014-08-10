@@ -13,6 +13,7 @@ import java.util.Scanner;
 public class BusTimeTester {
     public static void main(String[] args) throws IOException {
         // Read the key from the key.txt file in our res folder
+
         String key = new Scanner(new File("res/key.txt")).nextLine();
 
         BusTimeBuilder builder = new BusTimeBuilder().setKey(key);
