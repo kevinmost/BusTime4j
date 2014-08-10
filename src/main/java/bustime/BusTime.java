@@ -71,7 +71,13 @@ class BusTime {
         return (T) this;
     }
 
-    public JsonElement getDataFromApi() throws IOException {
+
+    /**
+     * Call the BusTime API using the previously-set parameters and return a JsonElement
+     * @return JsonElement returned by the API call
+     * @throws IOException if the API call couldn't be made
+     */
+    public JsonElement callApi() throws IOException {
         UrlBuilder builder = UrlBuilder.fromString(BASE_URL);
         for (Map.Entry<String, String> parameter : parameters.entrySet()) {
             builder = builder.addParameter(parameter.getKey(), parameter.getValue());
@@ -88,7 +94,6 @@ class BusTime {
     protected static JsonElement getJsonFromUrl(URL url) throws IOException {
         HttpURLConnection request = (HttpURLConnection) url.openConnection();
         request.connect();
-
 
         JsonParser jp = new JsonParser();
         return jp.parse(new InputStreamReader((InputStream)request.getContent()));
